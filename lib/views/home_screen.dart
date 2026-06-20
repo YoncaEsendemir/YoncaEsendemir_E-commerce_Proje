@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yoncaesendemir_e_commerce_proje/components/product_item_tile.dart';
 import 'package:yoncaesendemir_e_commerce_proje/models/products_model.dart';
 import 'package:yoncaesendemir_e_commerce_proje/services/api_services.dart';
+import 'package:yoncaesendemir_e_commerce_proje/views/product_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,6 +21,9 @@ class _HomeScreen extends State<HomeScreen> {
      List<Product> allProducts= [];
     // hata meydana geldiğinde kullanılacak errorMessage 
     String errorMessage="";
+    // set yapısının amacı : hangi ürüm sepete atılırsa o ürünün id bilgisini tutacak 
+    // product_detail ve sebet sayfasına verilecek sepet yönetimi dinamık bir şekide olacak
+    Set<int> cartIds= {};
 
     // Listeyi getirecek fonksiyon 
     Future <void> loadProducts() async{
@@ -104,7 +109,7 @@ class _HomeScreen extends State<HomeScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "",
+                  hintText: "Search",
                   prefixIcon: Icon(Icons.search),
                   filled: true,
                   fillColor: Colors.grey.shade200,
@@ -122,13 +127,13 @@ class _HomeScreen extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(8),
             
                child: Image.network("https://wantapi.com/assets/banner.png",
-                               height: 80,width: 
-                               double.infinity,
+                               height: 60,
+                               width: double.infinity,
                                fit: BoxFit.fitWidth,
                                ),
              ) ,  
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 12),
 
                 Expanded(
                   
@@ -145,72 +150,20 @@ class _HomeScreen extends State<HomeScreen> {
                        itemBuilder: (cotext,index) {
                         // döngü mantığı ile çalışyor ürünlistesindeki her elemani index göre alip
                         final product=allProducts[index];
-                         return Container(
-                             decoration: BoxDecoration(
-                              color: const Color.fromARGB(179, 206, 206, 211),
-                              borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(12),     // Sol Üst Köşe
-                              bottomRight: Radius.circular(20), // Sağ Alt Köşe
-                              // topRight ve bottomLeft yazmadığımız için onlar 0 (sivri) kalır.
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                              color: Colors.black26,
-                              blurRadius: 12,
-                              offset: const Offset(5, 7)
-                            ),
-                            ]
-                             ),
+                        // ürün bilgisi istiyor üste ise ürünşleri tek tek aliyoruz foreach gibi
+                        // GestureDetector widget tiklama özeliği verebiliyoruz yani card tıklama özeliği verdim 
+                         return  GestureDetector(
+                           onTap: (){
+                            Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=>ProductDetailScreen
+                            (product: product, cartIds: cartIds,)));
+                           },
+                          child: ProductItemTile(product: product));
 
-                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // boş gelebilir onun için bir varsayım değer  boş string
-                                    Expanded(
-                                      child: ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(12),     // Sol Üst Köşe
-                                      bottomRight: Radius.circular(20), // Sağ Alt Köşe
-                                        ),
-                                        child: Image.network(product.image!,
-                                        width: double.infinity,
-                                        fit: BoxFit.cover,
-                                        ),
-                                        ),
-                                    ),
-
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(product.title ?? "" , style: TextStyle(
-                                                fontSize: 14, fontWeight: FontWeight.bold
-                                          ),
-                                          ),
-                                          const SizedBox(height:1),
-
-                                               Text(product.category ?? "" , style: TextStyle(
-                                                fontSize: 12, fontWeight: FontWeight.bold
-                                          ),
-                                          ),
-                                           const SizedBox(height:1),
-
-                                               Text(product.price.toString() ?? "", style: TextStyle(
-                                                fontSize: 1, fontWeight: FontWeight.bold
-                                          ),
-                                          ),
-                                        ], 
-                                      ),
-                                    ),
-                              ],
-                             ),
-                         );
-                       })
+                          })
                 ),
 
               ],
-              // uürün yapısına ayit bilgilerini yazdım 
                 ),
         ),
       ),
