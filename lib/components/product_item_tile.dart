@@ -36,31 +36,35 @@ class _ProductItemTileState extends State<ProductItemTile> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // boş gelebilir onun için bir varsayım değer  boş string
-                                    Expanded(
-                                      child: ClipRRect(
-                                      borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(12),     // Sol Üst Köşe
-                                      bottomRight: Radius.circular(20), // Sağ Alt Köşe
-                                        ),
-                                        child:(widget.product.image!= null && widget.product.image!.isNotEmpty)
-                                  ? Image.network(
-                                      widget.product.image!,
-                                      width: double.infinity,
-                                      height: double.infinity,
-                                      fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) {
-                                        return Container(
-                                          color: Colors.grey[300],
-                                          child: const Icon(Icons.broken_image, color: Colors.grey),
-                                        );
-                                      },
-                                  )
-                                : Container(
-                                 color: Colors.grey[300],
-                                 width: double.infinity,
-                                 child: const Icon(Icons.image_not_supported, color: Colors.grey),
-                    ),
-                                        ),
+                          Expanded(
+                            child: Hero(
+                              tag:widget.product.id ?? 0,
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                   topLeft: Radius.circular(12),     // Sol Üst Köşe
+                                   bottomRight: Radius.circular(20), // Sağ Alt Köşe
+                                          ),
+                                          
+                                 child:(widget.product.image!= null && widget.product.image!.isNotEmpty)
+                                    ? Image.network(
+                                        widget.product.image!,
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        fit: BoxFit.cover,
+                                        errorBuilder: (context, error, stackTrace) {
+                                          return Container(
+                                            color: Colors.grey[300],
+                                            child: const Icon(Icons.broken_image, color: Colors.grey),
+                                          );
+                                        },
+                                    )
+                                  : Container(
+                                   color: Colors.grey[300],
+                                   width: double.infinity,
+                                   child: const Icon(Icons.image_not_supported, color: Colors.grey),
+                                                  ),
+                                          ),
+                            ),
                                     ),
 
                                     Padding(

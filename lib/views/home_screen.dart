@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yoncaesendemir_e_commerce_proje/components/product_item_tile.dart';
 import 'package:yoncaesendemir_e_commerce_proje/models/products_model.dart';
 import 'package:yoncaesendemir_e_commerce_proje/services/api_services.dart';
+import 'package:yoncaesendemir_e_commerce_proje/views/cart_screen.dart';
 import 'package:yoncaesendemir_e_commerce_proje/views/product_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -85,7 +86,12 @@ class _HomeScreen extends State<HomeScreen> {
                               ),
                           const Spacer(),
 
-                        IconButton(icon: const Icon(Icons.shopping_bag_outlined), onPressed: () {}),
+                        IconButton(icon: const Icon(Icons.shopping_bag_outlined),
+                         onPressed:() {
+                          // Sepet sayfasına gitmek için ilgili Navigator.push fonsiyonu kullandım
+                          Navigator.push(context, MaterialPageRoute(builder:
+                           (context)=>CartScreen(cartIds: cartIds, products: allProducts)));
+                         }),
 
                 ],
               ),
