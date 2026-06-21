@@ -28,10 +28,10 @@ class _CartItemTileState extends State<CartItemTile> {
                       padding:const EdgeInsets.all(12),
                       decoration:
                         BoxDecoration(
-                          color:Color.fromARGB(255, 187, 182, 182)
+                          color:Color.fromARGB(255, 185, 195, 199),
+                          borderRadius: BorderRadius.circular(10),
                         ),
                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
                         child:(widget.item.image!= null && widget.item.image!.isNotEmpty)
                       ? Image.network(widget.item.image!,
                         width: 60,
@@ -65,9 +65,9 @@ class _CartItemTileState extends State<CartItemTile> {
                       ),
 
                       Text(
-                        widget.item.price.toString() ?? "",
+                        "${widget.item.price.toString()} £" ?? "",
                         style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.bold, color: Colors.blueAccent.shade700
+                          fontSize: 14, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 12, 62, 103)
                         ),
                       )
                     ],

@@ -29,7 +29,8 @@ class _CartScreenState extends State<CartScreen> {
       final double totalSum= cartList.fold(0.0 ,(sum,item) => sum + (item.price ?? 0.0)  );
 
     return Scaffold(
-      appBar: AppBar(title: Text("Home Page")),
+      backgroundColor: const Color.fromARGB(255, 224, 240, 245),
+      appBar: AppBar(title: Text("Shopping Bag"),backgroundColor: const Color.fromARGB(255, 224, 240, 245),),
 
       body: SafeArea(
         child: Padding(
@@ -82,7 +83,7 @@ class _CartScreenState extends State<CartScreen> {
               style: TextStyle( 
                  fontSize: 20,
                  fontWeight: FontWeight.bold,
-                 color:Colors.black),
+                 color:Colors.black54),
                  ),
 
               const  SizedBox(height: 24),

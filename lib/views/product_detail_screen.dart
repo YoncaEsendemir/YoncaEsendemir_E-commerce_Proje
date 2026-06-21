@@ -14,9 +14,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title:Text("Back")),
+      backgroundColor: const Color.fromARGB(255, 224, 240, 245),
+        appBar: AppBar(title:Text("Back"), backgroundColor: const Color.fromARGB(255, 224, 240, 245),),
 
       body: SafeArea(
+        
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +61,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
         
                             const SizedBox(height:4),
-                                              // 1. FİYAT
+                      // fiyat
                         Text(
                           widget.product.price != null ? "${widget.product.price} £" : "0.0 £",
                           style: const TextStyle(
@@ -73,7 +75,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                            Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // 1. YORUM SAYISI (COUNT)
+                        // yorum sayısı
                         Row(
                           children: [
                             const Icon(Icons.comment, color: Colors.blueGrey, size: 20),
@@ -90,7 +92,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
                           ],
                         ),
-                        // 2. PUAN (RATE)
+                        // puan
                         Row(
                           children: [
                             const Icon(Icons.star, color: Colors.amber, size: 20),

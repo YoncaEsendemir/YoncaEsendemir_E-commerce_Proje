@@ -19,7 +19,8 @@ class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Payment Page")),
+      backgroundColor: const Color.fromARGB(255, 224, 240, 245),
+      appBar: AppBar(title: const Text("Payment Page"),backgroundColor: const Color.fromARGB(255, 224, 240, 245),),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Form(
@@ -36,7 +37,7 @@ class _PaymentPageState extends State<PaymentPage> {
                 "required field",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.grey),
               ),
-              const SizedBox(height: 80),
+              const SizedBox(height: 60),
               
    Expanded(
      child: Column(
@@ -175,14 +176,33 @@ class _PaymentPageState extends State<PaymentPage> {
                   if (fromKey.currentState!.validate()) {
                     // Form doğrulaması başarılıysa ödeme işlemlerini tetikle
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Payment...')),
+                      const SnackBar(content: 
+                      Row(
+                        children: [
+                       Icon(Icons.add_card_outlined ,color: Colors.white,),
+                       SizedBox(width: 12,),
+                      Text('Processing Payment...', style:
+                       TextStyle(fontSize: 16,
+                       color: Colors.white, fontWeight: 
+                       FontWeight.bold),),
+                        ],
+                      ),
+
+                      backgroundColor: Colors.green,
+                      behavior: SnackBarBehavior.floating,
+                      duration: Duration(seconds: 1),
+                     
+                      ),
                     );
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(double.infinity, 50),
-                  backgroundColor: Colors.blueAccent.shade700,
-                ),
+                    backgroundColor: Colors.blueAccent.shade700,
+                    minimumSize: Size(double.infinity, 40),
+                    shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10)
+                    )
+                  ),
                 child: const Text("Pay Now", style: TextStyle(color: Colors.white, fontSize: 18)),
               ),
             )

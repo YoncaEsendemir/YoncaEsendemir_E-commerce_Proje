@@ -60,8 +60,8 @@ class _HomeScreen extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(title: Text("Haberler",)),
+      backgroundColor: const Color.fromARGB(255, 224, 240, 245),
+      appBar: AppBar(title: Text("Haberler",), backgroundColor: const Color.fromARGB(255, 224, 240, 245),),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -112,13 +112,14 @@ class _HomeScreen extends State<HomeScreen> {
               decoration: BoxDecoration(
                 color: const Color.fromARGB(0, 230, 230, 232),
                 borderRadius: BorderRadius.circular(16),
+                
               ),
               child: TextField(
                 decoration: InputDecoration(
                   hintText: "Search",
-                  prefixIcon: Icon(Icons.search),
+                  prefixIcon: Icon(Icons.search,),
                   filled: true,
-                  fillColor: Colors.grey.shade200,
+                  fillColor: Colors.grey.shade300,
                   border:OutlineInputBorder(borderSide:BorderSide.none,
                   borderRadius: BorderRadius.circular(100),
                   ),
