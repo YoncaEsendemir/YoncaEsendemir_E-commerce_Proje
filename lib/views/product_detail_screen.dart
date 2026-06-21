@@ -72,45 +72,58 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                         ),
         
                       const SizedBox(height: 8),
-                           Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // yorum sayısı
-                        Row(
+                           Column(
+                            
+                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Icon(Icons.comment, color: Colors.blueGrey, size: 20),
-                            const SizedBox(width: 4),
                             Text(
-                              widget.product.rating?.count != null 
-                                  ? "(${widget.product.rating!.count} comment)" 
-                                  : "(0 comment)",
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Color.fromRGBO(12, 62, 103, 1),
-                                fontWeight: FontWeight.w600,
-                              ),
+                             "Reviews" ,
+                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey.shade800),
                             ),
-                          ],
-                        ),
-                        // puan
-                        Row(
-                          children: [
-                            const Icon(Icons.star, color: Colors.amber, size: 20),
-                            const SizedBox(width: 4),
-                            Text(
-                              widget.product.rating?.rate != null 
-                                  ? widget.product.rating!.rate.toString() 
-                                  : "0.0",
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Color.fromARGB(255, 12, 62, 103),
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                      ),
+
+                            const SizedBox(height:4),
+
+                               Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                             children: [
+                              // yorum sayısı
+                             Row(
+                             children: [
+                                const Icon(Icons.comment, color: Colors.blueGrey, size: 20),
+                                const SizedBox(width: 4),
+                                Text(
+                                  widget.product.rating?.count != null 
+                                      ? "(${widget.product.rating!.count} comment)" 
+                                      : "(0 comment)",
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Color.fromRGBO(12, 62, 103, 1),
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                                         ],
+                                                       ),
+                                                       // puan
+                                                       Row(
+                                                         children: [
+                                const Icon(Icons.star, color: Colors.amber, size: 20),
+                                const SizedBox(width: 4),
+                                Text(
+                                  widget.product.rating?.rate != null 
+                                      ? widget.product.rating!.rate.toString() 
+                                      : "0.0",
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Color.fromARGB(255, 12, 62, 103),
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                                                         ],
+                                                       ),
+                                                     ],
+                                                     ),
+                             ],
+                           ),
         
                      const  SizedBox(height: 24,),
                   // genelde btn çağıracağımız yerde Elevated btn cağırırız
