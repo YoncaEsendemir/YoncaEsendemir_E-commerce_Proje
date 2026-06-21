@@ -37,7 +37,7 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 * **Veri Gösterimi ve Esneklik:** Taşınan nesne üzerinden ürünün başlığı, kategorisi, açıklaması, fiyatı, yorum sayısı (Reviews) ve puanı null-safety kontrollerinden geçirilerek ekrana basılmıştır. `SingleChildScrollView` ve `SafeArea` sarmalları sayesinde ekran taşma (`overflow`) hataları engellenmiştir.
 
 ### **Detay Sayfası:**
-> <img src="lib/images/productDetailScreen.jpg" width="300" alt="Product Detail Screen"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="lib/images/productDetailScreen2.jpg" width="300" alt="Product Detail Screen"/>
+> <img src="lib/images/productDetailScreen.jpg" width="300" style="margin-right: 20px;" alt="Product Detail Screen"/> <img src="lib/images/productDetailScreen2.jpg" width="300" alt="Product Detail Screen"/>
 
 ### 4. Set Tabanlı Dinamik Sepet Yönetimi (Cart Screen)
 * **Benzersiz Sepet Yapısı (`Set`):** Tekrarlayan ürün kayıtlarını önlemek ve verimliliği artırmak için `List` yerine benzersiz ID tutan `Set<int> cartIds` yapısı tercih edilmiştir.
@@ -48,7 +48,7 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 
 ### **Sepet Sayfası:**
 
-> <img src="lib/images/shoppingBag.jpg" width="300" alt="Cart Screen"/> &nbsp;&nbsp;&nbsp;&nbsp;    <img src="lib/images/shoppingBag2.jpg" width="300" alt="Cart Screen"/> 
+> <img src="lib/images/shoppingBag.jpg" width="300" style="margin-right: 20px;" alt="Cart Screen" />  <img src="lib/images/shoppingBag2.jpg" width="300" alt="Cart Screen"/> 
 
 ### 5. Güvenli Ödeme Aşaması (Payment Page)
 * **Form Doğrulaması:** Ödeme sayfasındaki tüm girdi alanları (`TextFormField`) bir `Form` ve `GlobalKey<FormState>` yapısı altında toplanmıştır. "Pay Now" butonuna basıldığında alanların boş geçilip geçilmediği validasyon kontrolünden geçirilir; böylece alanların boş geçilmesi engellenir.
@@ -56,4 +56,4 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 * **İşlem Sonucu:** Validasyon başarılı olduğunda kullanıcıya yeşil renkli, havada asılı (`floating`) bir `SnackBar` ile ödemenin işleme alındığı bilgisi ("Processing Payment...") gösterilir.
 
 ### **Ödeme Sayfası:**
-> <img src="lib/images/payment_Page.jpg" width="300" alt="Payment Page"/> &nbsp;&nbsp;&nbsp;&nbsp;   <img src="lib/images/paymentPage2.jpg" width="300" alt="Cart Screen"/>
+> <img src="lib/images/payment_Page.jpg" style="margin-right: 20px;" width="300" alt="Payment Page" />  <img src="lib/images/paymentPage2.jpg" width="300" alt="Cart Screen"/>
