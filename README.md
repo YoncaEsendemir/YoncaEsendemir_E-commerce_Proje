@@ -60,6 +60,4 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 * **İşlem Sonucu:** Validasyon başarılı olduğunda kullanıcıya yeşil renkli, havada asılı (`floating`) bir `SnackBar` ile ödemenin işleme alındığı bilgisi ("Processing Payment...") gösterilir.
 
 ### **Ödeme Sayfası:**
-> <img src="lib/images/payment_Page.jpg" width="300" alt="Payment Page"/>
-
-> <img src="lib/images/payment_Page.jpg2" width="300" alt="Payment Page"/>
+> <img src="lib/images/payment_Page.jpg" width="300" alt="Payment Page"/>  <img src="lib/images/paymentPage2.jpg" width="300" alt="Cart Screen"/>
