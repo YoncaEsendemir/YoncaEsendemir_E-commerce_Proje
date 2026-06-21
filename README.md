@@ -1,9 +1,5 @@
 # Storied Store - Flutter E-Commerce Application
 
-Hüseyin Adıgüzel önderliğinde yürütülen staj programı kapsamında geliştirilmiş, REST API entegrasyonuna sahip, dinamik ve kullanıcı dostu bir e-ticaret mobil uygulaması projesidir.
-
----
-
 ## Proje Hakkında
 Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ürün listeleme, detay görüntüleme ve state tabanlı sepet yönetimi sunan modern bir e-ticaret arayüzüdür. Projede görsel hiyerarşi, bileşen tabanlı (component) mimari ve modern null-safety kuralları titizlikle uygulanmıştır.
 
