@@ -50,9 +50,7 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 
 ### **Sepet Sayfası:**
 
-> <img src="lib/images/shoppingBag.jpg" width="300" alt="Cart Screen"/>
-
-> <img src="lib/images/paymentPage2.jpg" width="300" alt="Cart Screen"/>
+> <img src="lib/images/shoppingBag.jpg" width="300" alt="Cart Screen"/>  > <img src="lib/images/shoppingBag2.jpg" width="300" alt="Cart Screen"/>
 
 ### 5. Güvenli Ödeme Aşaması (Payment Page)
 * **Form Doğrulaması:** Ödeme sayfasındaki tüm girdi alanları (`TextFormField`) bir `Form` ve `GlobalKey<FormState>` yapısı altında toplanmıştır. "Pay Now" butonuna basıldığında alanların boş geçilip geçilmediği validasyon kontrolünden geçirilir; böylece alanların boş geçilmesi engellenir.
