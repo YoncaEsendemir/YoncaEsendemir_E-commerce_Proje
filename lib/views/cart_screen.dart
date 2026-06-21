@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yoncaesendemir_e_commerce_proje/models/products_model.dart';
 import 'package:yoncaesendemir_e_commerce_proje/components/cart_item_tile.dart';
+import 'package:yoncaesendemir_e_commerce_proje/views/payment_page.dart';
 
 class CartScreen extends StatefulWidget {
   // hangi ürünü sepete atıldığını gösteren değişken
@@ -14,6 +15,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+  //int totalSum=0;
   @override
   Widget build(BuildContext context) {
     // hangi ürünler sepete olduğnu products listeden ayıklıyoruz
@@ -22,6 +24,10 @@ class _CartScreenState extends State<CartScreen> {
         .where((product) => widget.cartIds.contains(product.id ?? 0))
         .toList();
 
+      //Taplam tutar hesaplama
+      // ürün fiyatlari double olduğu için .fold() ile topladım.
+      final double totalSum= cartList.fold(0.0 ,(sum,item) => sum + (item.price ?? 0.0)  );
+
     return Scaffold(
       appBar: AppBar(title: Text("Home Page")),
 
@@ -29,11 +35,32 @@ class _CartScreenState extends State<CartScreen> {
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
-            
+          
             children: [
               Expanded(
                 
-            child:
+            child: cartList.isEmpty ?  
+            Center(
+              child: Column(
+                // sadece gerekli alanı kapsar  
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.shopping_bag_outlined, size:68, color: Colors.black26),
+
+              const SizedBox(height:16),
+                Text(
+                  "Your cart is empty", style: TextStyle(fontSize: 16, color: Colors.black38),
+                ),
+
+                const SizedBox(height:16),
+
+                Text(
+                  "Quality and reliable shopping", style: TextStyle(fontSize: 20, color: Colors.black38),
+                ),
+                ],
+              ),
+            )
+            :
             ListView.builder(
                 itemCount: cartList.length,
                 itemBuilder: (context, index)
@@ -49,7 +76,15 @@ class _CartScreenState extends State<CartScreen> {
                   }
             )
             ),
-        
+
+            const  SizedBox(height: 24),
+              Text("Total Amount to be Paid ${totalSum.toString()}£",
+              style: TextStyle( 
+                 fontSize: 20,
+                 fontWeight: FontWeight.bold,
+                 color:Colors.black),
+                 ),
+
               const  SizedBox(height: 24),
 
               Container(
@@ -70,7 +105,7 @@ class _CartScreenState extends State<CartScreen> {
                               const SizedBox(width:10),
                           Expanded(
                             child: Text(
-                                "Sepetinizi onaylamak istiyorsanız lütfen işlemi onaylayın ve bir sonraki adıma geçin. Onay işlemini tamamladıktan sonra siparişinizin detaylarını kontrol ederek alışverişinizi güvenli bir şekilde tamamlayabilirsiniz.",
+                                "If you wish to confirm your cart, please confirm the transaction and proceed to the next step. After completing the confirmation process, you can check your order details and securely complete your purchase.",
                                 style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.normal
@@ -88,17 +123,37 @@ class _CartScreenState extends State<CartScreen> {
                // ikincisi de textyanı içerik   
           
                     ElevatedButton(onPressed: () {
-                          setState(() {
-          
-                           // btn tıklayınca gelen bidirim btn üzerinde
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                 SnackBar(content: Text("Checkout"),
-                                          backgroundColor: Colors.green.shade900,
-                                          // köşelerini yumuşatmak için
-                                          behavior: SnackBarBehavior.fixed,
-                                 )
-                              );
-                          });
+                      // sepet boş ise Ödeme ekrana gitmez Ana ekrana geçer
+                          if(totalSum>0){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> PaymentPage(totalAmount:totalSum)));
+                          }
+                          else{
+                             // Sepeti boş olduüunu bildiren SnackBar 
+                             ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: 
+                                const Row(children: [
+                                  Icon(Icons.info_outline, color:Colors.white10 ),
+                                  SizedBox(width: 10,),
+                                  Expanded(
+                                    child: Text(
+                                      "Your shopping bag is empty! Going back to Home Screen.", style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                ],
+                                ),
+                                backgroundColor: Colors.deepOrange,
+                                // bildirim ekranda kalma süresi
+                                duration: const Duration(seconds: 2),
+                                //Havada asılı
+                                behavior: SnackBarBehavior.floating,
+                                // kenarlara yumuşaklık versin diye
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                )
+                             );
+
+                            //Kullanıcıyı ana ekrana geri gönderiyoruz
+                            Navigator.pop(context);
+                          }
                     }, 
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blueAccent.shade700,

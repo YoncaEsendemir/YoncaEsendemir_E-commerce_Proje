@@ -80,8 +80,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             const SizedBox(width: 4),
                             Text(
                               widget.product.rating?.count != null 
-                                  ? "(${widget.product.rating!.count} yorum)" 
-                                  : "(0 yorum)",
+                                  ? "(${widget.product.rating!.count} comment)" 
+                                  : "(0 comment)",
                               style: const TextStyle(
                                 fontSize: 16,
                                 color: Color.fromRGBO(12, 62, 103, 1),
@@ -127,7 +127,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                SnackBar(content: Text("Added to cart"),
                                         backgroundColor: Colors.green.shade900,
                                         // köşelerini yumuşatmak için
-                                        behavior: SnackBarBehavior.fixed,
+                                        behavior: SnackBarBehavior.floating,
+                                        //Bildirim ekranda kalacak süre 
+                                        
                                )
                             );
                         });
