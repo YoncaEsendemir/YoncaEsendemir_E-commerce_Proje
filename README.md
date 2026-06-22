@@ -32,7 +32,6 @@ Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ü
 
 ## Uygulama Çalışma Adımları ve Geliştirme Süreci
 
->>>>>>> 5a5cac004b8828474841d8fc54c821ec38a421ec
 Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal bir sıra ile aşağıda özetlenmiştir:
 
 ### 1. Home Screen (Ana Sayfa) Tasarımı ve Veri Akışı
@@ -41,11 +40,11 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 * **Asenkron Veri Yönetimi (`initState`):** Sayfa henüz yüklenmeden önce `initState` metodu tetiklenerek `ApiServices.fetchProducts()` fonksiyonu üzerinden API çağrısı asenkron olarak başlatılır. Veri çekme esnasında `loading = true` durumu ile ekranda bir `CircularProgressIndicator` gösterilir; işlem başarıyla tamamlandığında gelen veriler `allProducts` listesine aktarılarak arayüz güncellenir.
 * **Arama ve Banner Yapısı:** `TextField` widget'ı kullanılarak özelleştirilmiş bir arama barı yerleştirilmiş ve `ClipRRect` ile sarmalanarak köşeleri yumuşatılmış dinamik bir reklam banner alanı entegre edilmiştir.
 
-<<<<<<< HEAD
+
 > **Ana Sayfa:**
 =======
 ### **Ana Sayfa:**
->>>>>>> 5a5cac004b8828474841d8fc54c821ec38a421ec
+
 > <img src="lib/images/homeScreen.jpg" width="300" alt="Home Screen"/>
 
 ### 2. Sayfalar Arası Geçiş ve Constructor Veri Aktarımı
@@ -56,14 +55,13 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 * **Hero Animasyonu:** Ana sayfadan detay sayfasına geçiş esnasında kullanıcılara kusursuz bir görsel deneyim sunmak adına ürün resimleri `Hero` widget'ı ile sarmalanmıştır. Benzersiz bir eşleşme sağlaması için `tag` bilgisi olarak doğrudan `widget.product.id` kullanılmıştır.
 * **Veri Gösterimi ve Esneklik:** Taşınan nesne üzerinden ürünün başlığı, kategorisi, açıklaması, fiyatı, yorum sayısı (Reviews) ve puanı null-safety kontrollerinden geçirilerek ekrana basılmıştır. `SingleChildScrollView` ve `SafeArea` sarmalları sayesinde ekran taşma (`overflow`) hataları engellenmiştir.
 
-<<<<<<< HEAD
 > **Detay Sayfası:**
 > <img src="lib/images/productDetailScreen.jpg" width="300" alt="Product Detail Screen"/>
 > <img src="lib/images/productDetailScreen2.jpg" width="300" alt="Product Detail Screen"/>
 =======
 ### **Detay Sayfası:**
 > <img src="lib/images/productDetailScreen.jpg" width="300" style="margin-right: 20px;" alt="Product Detail Screen"/> <img src="lib/images/productDetailScreen2.jpg" width="300" alt="Product Detail Screen"/>
->>>>>>> 5a5cac004b8828474841d8fc54c821ec38a421ec
+
 
 ### 4. Set Tabanlı Dinamik Sepet Yönetimi (Cart Screen)
 * **Benzersiz Sepet Yapısı (`Set`):** Tekrarlayan ürün kayıtlarını önlemek ve verimliliği artırmak için `List` yerine benzersiz ID tutan `Set<int> cartIds` yapısı tercih edilmiştir.
@@ -80,7 +78,6 @@ Uygulamanın geliştirme süreci ve ekranların çalışma mantığı mantıksal
 ### **Sepet Sayfası:**
 
 > <img src="lib/images/shoppingBag.jpg" width="300" style="margin-right: 20px;" alt="Cart Screen" /> <img src="lib/images/shoppingBag2.jpg" width="300" alt="Cart Screen"/>
->>>>>>> 5a5cac004b8828474841d8fc54c821ec38a421ec
 
 ### 5. Güvenli Ödeme Aşaması (Payment Page)
 * **Form Doğrulaması:** Ödeme sayfasındaki tüm girdi alanları (`TextFormField`) bir `Form` ve `GlobalKey<FormState>` yapısı altında toplanmıştır. "Pay Now" butonuna basıldığında alanların boş geçilip geçilmediği validasyon kontrolünden geçirilir; böylece alanların boş geçilmesi engellenir.
