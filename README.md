@@ -1,9 +1,4 @@
 # Storied Store - Flutter E-Commerce Application
-
-Hüseyin Adıgüzel önderliğinde yürütülen staj programı kapsamında geliştirilmiş, REST API entegrasyonuna sahip, dinamik ve kullanıcı dostu bir e-ticaret mobil uygulaması projesidir.
-
----
-
 ## Proje Hakkında
 Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ürün listeleme, detay görüntüleme ve state tabanlı sepet yönetimi sunan modern bir e-ticaret arayüzüdür. Projede görsel hiyerarşi, bileşen tabanlı (component) mimari ve modern null-safety kuralları titizlikle uygulanmıştır.
 
@@ -24,6 +19,7 @@ Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ü
 - **Arama ve Banner Yapısı:** `TextField` widget'ı kullanılarak özelleştirilmiş bir arama barı yerleştirilmiş ve `ClipRRect` ile sarmalanarak köşeleri yumuşatılmış dinamik bir reklam banner alanı entegre edilmiştir.
 
 **Ana Sayfa:**
+
 <img src="lib/images/homeScreen.jpg" width="300" alt="Home Screen"/>
 
 ---
@@ -39,6 +35,7 @@ Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ü
 - **Veri Gösterimi ve Esneklik:** Taşınan nesne üzerinden ürünün başlığı, kategorisi, açıklaması, fiyatı, yorum sayısı (Reviews) ve puanı null-safety kontrollerinden geçirilerek ekrana basılmıştır. `SingleChildScrollView` ve `SafeArea` sarmalları sayesinde ekran taşma (`overflow`) hataları engellenmiştir.
 
 **Detay Sayfası:**
+
 <img src="lib/images/productDetailScreen.jpg" width="300" alt="Product Detail Screen"/>
 <img src="lib/images/productDetailScreen2.jpg" width="300" alt="Product Detail Screen"/>
 
@@ -52,6 +49,7 @@ Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ü
 - **Sepet Kontrolü & Navigasyon:** "Checkout" butonuna basıldığında sepet boş ise `SnackBar` uyarısıyla birlikte `Navigator.pop` yapılarak ana ekrana dönülür; dolu ise ödeme sayfasına geçilir.
 
 **Sepet Sayfası:**
+
 <img src="lib/images/shoppingBag.jpg" width="300" alt="Cart Screen"/>
 <img src="lib/images/shoppingBag2.jpg" width="300" alt="Cart Screen"/>
 
@@ -63,5 +61,6 @@ Bu uygulama, **FakeStoreAPI** servislerini asenkron olarak tüketerek dinamik ü
 - **İşlem Sonucu:** Validasyon başarılı olduğunda kullanıcıya yeşil renkli, havada asılı (`floating`) bir `SnackBar` ile ödemenin işleme alındığı bilgisi ("Processing Payment...") gösterilir.
 
 **Ödeme Sayfası:**
+
 <img src="lib/images/payment_Page.jpg" width="300" alt="Payment Page"/>
 <img src="lib/images/paymentPage2.jpg" width="300" alt="Payment Page"/>
